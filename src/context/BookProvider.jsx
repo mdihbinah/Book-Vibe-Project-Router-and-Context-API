@@ -1,13 +1,13 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import { addReadListToLocalDB, getAllReadListFromLocalDB } from './Utility/localDB';
+import { addReadListToLocalDB, addWishListToLocalDB, getAllReadListFromLocalDB, getAllWishListFromLocalDB } from './Utility/localDB';
 
 export const BookContext = createContext()
 
 const BookProvider = ({children}) => {
 
     const [storedBooks, setStoredBooks] = useState(getAllReadListFromLocalDB())
-    const [wishlist, setWishlist] = useState([])
+    const [wishlist, setWishlist] = useState(getAllWishListFromLocalDB())
 
     // useEffect(() =>{
     //     const addReadListFromLocalDB = getAllReadListFromLocalDB()
@@ -31,6 +31,8 @@ const BookProvider = ({children}) => {
     }
     const handleWishList = (currentBook) => {
         console.log(currentBook);
+
+        addWishListToLocalDB(currentBook)
 
         const isExistReadList = storedBooks.find(book => book.bookId == currentBook.bookId)
 
