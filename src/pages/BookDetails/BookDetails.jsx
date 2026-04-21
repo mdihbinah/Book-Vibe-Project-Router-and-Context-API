@@ -1,4 +1,4 @@
-import React, { use, useContext, useState } from 'react';
+import React, {  useContext } from 'react';
 import { useLoaderData, useParams } from 'react-router';
 import { BookContext } from '../../context/BookProvider';
 
@@ -11,20 +11,20 @@ const BookDetails = () => {
     const books = useLoaderData()
     // console.log(books, 'loader data');
     const expectedBook = books.find(book => book.bookId == bookParamsId)
-    console.log(expectedBook, 'find book');
-    const {bookId, bookName, author, image, review, totalPages, rating, category, tags, publisher, yearOfPublishing} = expectedBook
+    // console.log(expectedBook, 'find book');
+    const {bookName, author, image, review, totalPages, rating, category, publisher, yearOfPublishing} = expectedBook
     
-    const {storedBooks, handleMarkAsRead, wishList, handleWishList} = useContext(BookContext)
+    const { handleMarkAsRead, handleWishList} = useContext(BookContext)
     // console.log(storedBooks, handleMarkAsRead);
     
     
 
     return (
         <div>
-            <div className="grid grid-cols-6 bg-base-100 shadow-sm container mt-5 mx-auto ">
+            <div className="flex flex-col justify-center items-center md:grid grid-cols-6 bg-base-100 shadow-sm container mt-5 mx-auto ">
   <figure className='col-span-2'>
     <img
-      src={image} className='p-5 rounded-2xl bg-gray-100' />
+      src={image} className='p-5 rounded-lg bg-gray-100 w-full h-100 md:w-auto ' />
   </figure>
   <div className="card-body col-span-4">
     <h2 className="card-title">{bookName}</h2>
@@ -33,8 +33,8 @@ const BookDetails = () => {
     <p className=''><span className='font-bold'>Review : </span> {review}</p>
     <div className="flex gap-2">
         <span>Tag:</span>
-        {expectedBook.tags.map(tag =>
-            <div className="badge text-green-500 bg-green-100 font-bold">#{tag}</div>
+        {expectedBook.tags.map((tag, index) =>
+            <div key={index} className="badge text-green-500 bg-green-100 font-bold">#{tag}</div>
     )}
     </div>
     <div className="border-t flex flex-col gap-3">

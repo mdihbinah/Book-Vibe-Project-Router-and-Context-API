@@ -12,8 +12,8 @@ const Book = ({book}) => {
   </figure>
   <div className="card-body">
     <div className="flex items-center gap-2">
-        {book.tags.map(tag =>
-            <div className="badge text-green-500 bg-green-100 font-bold">{tag}</div>
+        {book.tags.map((tag, index) =>
+            <div key={index} className="badge text-green-500 bg-green-100 font-bold">{tag}</div>
         )}
     </div>
       

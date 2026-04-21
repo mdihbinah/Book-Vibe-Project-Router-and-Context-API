@@ -13,11 +13,11 @@ const ListedWishList = ({sortingType}) => {
             if(sortingType){
                 if(sortingType === 'pages'){
                     const sortedList = [...wishlist].sort((a,b) => a.totalPages - b.totalPages)
-                    console.log(sortedList);
+                    // console.log(sortedList);
                     setFilteredWishList(sortedList)
                 } else if(sortingType === 'rating'){
                     const sortedList = [...wishlist].sort((a,b) => a.rating - b.rating)
-                    console.log(sortedList);
+                    // console.log(sortedList);
                     setFilteredWishList(sortedList)
                 }
             }

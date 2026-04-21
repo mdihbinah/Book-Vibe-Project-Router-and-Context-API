@@ -9,11 +9,11 @@ const ListedBookList = ({sortingType}) => {
         if(sortingType){
             if(sortingType === 'pages'){
                 const sortedList = [...storedBooks].sort((a,b) => a.totalPages - b.totalPages)
-                console.log(sortedList);
+                // console.log(sortedList);
                 setFilteredReadList(sortedList)
             } else if(sortingType === 'rating'){
                 const sortedList = [...storedBooks].sort((a,b) => a.rating - b.rating)
-                console.log(sortedList);
+                // console.log(sortedList);
                 setFilteredReadList(sortedList)
             }
         }

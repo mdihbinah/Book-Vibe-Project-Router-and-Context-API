@@ -2,3 +2,10 @@
 @plugin "daisyui";
 
 
+.btn1{
+    background-color: red;
+}
+
+.btn2{
+    background-color: rgba(0, 128, 0, 0.324);
+}
