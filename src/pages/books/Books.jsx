@@ -8,7 +8,7 @@ import ListedWishList from '../../components/ListedBooks/ListedWishList';
 const Books = () => {
     const [sortingType, setSortingType] = useState()
     // console.log(sortingType);
-    const {storedBooks, handleMarkAsRead, wishlist} = useContext(BookContext)
+    const {storedBooks, wishlist} = useContext(BookContext)
     // console.log(storedBooks, wishlist, 'books');
     return (
         <div className='w-[90%] mx-auto mt-5'>
@@ -18,6 +18,7 @@ const Books = () => {
   <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
     <li onClick={() => setSortingType('pages')}><a>Sort by pages</a></li>
     <li onClick={() => setSortingType('rating')} ><a>Sort by rating</a></li>
+    <li onClick={() => setSortingType('year')} ><a>Sort by Publishing Year</a></li>
   </ul>
 </div>
             </div>

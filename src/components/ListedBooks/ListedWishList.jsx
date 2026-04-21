@@ -19,6 +19,10 @@ const ListedWishList = ({sortingType}) => {
                     const sortedList = [...wishlist].sort((a,b) => a.rating - b.rating)
                     // console.log(sortedList);
                     setFilteredWishList(sortedList)
+                } else if(sortingType === 'year'){
+                    const sortedList = [...wishlist].sort((a,b) => a.yearOfPublishing - b.yearOfPublishing)
+                    // console.log(sortedList);
+                    setFilteredWishList(sortedList)
                 }
             }
         }, [sortingType, wishlist])

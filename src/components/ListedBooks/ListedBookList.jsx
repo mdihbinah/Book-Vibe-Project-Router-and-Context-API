@@ -15,6 +15,10 @@ const ListedBookList = ({sortingType}) => {
                 const sortedList = [...storedBooks].sort((a,b) => a.rating - b.rating)
                 // console.log(sortedList);
                 setFilteredReadList(sortedList)
+            } else if(sortingType === 'year'){
+                const sortedList = [...storedBooks].sort((a,b) => a.yearOfPublishing - b.yearOfPublishing)
+                // console.log(sortedList);
+                setFilteredReadList(sortedList)
             }
         }
     }, [sortingType, storedBooks])

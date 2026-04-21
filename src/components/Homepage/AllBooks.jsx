@@ -2,8 +2,7 @@ import React, { use } from 'react';
 import { CiStar } from 'react-icons/ci';
 import Book from '../UI/Book';
 
-const booksPromise = fetch('/booksData.json').then(res => res.json())
-
+const booksPromise = fetch('https://book-vibe-peach.vercel.app/booksData.json').then(res => res.json())
 
 const AllBooks = () => {
     const books = use(booksPromise)
